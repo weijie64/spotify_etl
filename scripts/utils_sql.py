@@ -34,3 +34,4 @@ def upsert_dataframe(df, db_uri, table_name, pk):
             execute_values(cur, insert_sql, values)
 
     print(f"UPSERT into '{table_name}' complete. Rows processed: {len(values)}")
+
