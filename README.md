@@ -2,6 +2,8 @@
 
 This project extracts data from the Spotify API, transforms it, and loads it into a PostgreSQL database. It's orchestrated using Apache Airflow running inside Docker containers.
 
+![image](https://github.com/user-attachments/assets/f016128d-c205-4d1c-82fd-8a83c1cc7b76)
+
 ---
 
 ##  Features
