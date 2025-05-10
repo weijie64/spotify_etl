@@ -15,7 +15,7 @@ This project extracts data from the Spotify API, transforms it, and loads it int
 
 ---
 
-## 🗂 Project Structure
+# Project Structure
 
 ```
 spotify_etl/
