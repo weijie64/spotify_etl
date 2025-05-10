@@ -38,7 +38,7 @@ spotify_etl/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/spotify-etl.git
+git clone https://github.com/weijie64/spotify-etl.git
 cd spotify-etl
 ```
 
@@ -47,9 +47,9 @@ cd spotify-etl
 Create a `.env` file in the project root:
 
 ```env
-SPOTIFY_CLIENT_ID=your_client_id
-SPOTIFY_CLIENT_SECRET=your_client_secret
-ETL_DB_URI=postgresql://etl_user:etl_pass@postgres_etl:5432/etl_db
+CLIENT_ID=your_client_id
+LIENT_SECRET=your_client_secret
+DB_URI=postgresql://etl_user:etl_pass@postgres_etl:5432/etl_db
 ```
 
 > **Note**: Your `.env` is used in the containers and loaded via `env_file:` in `docker-compose.yml`.
@@ -72,6 +72,8 @@ Then visit the Airflow UI at: [http://localhost:8080](http://localhost:8080)
 In the Airflow UI:
 1. Turn on the DAG named `spotify_etl_pipeline`
 2. Click “Trigger DAG” to run it manually
+![image](https://github.com/user-attachments/assets/59a264e6-8a8c-4ee8-96f4-feb1c7c234bb)
+
 
 ## 5. Final Result
 
@@ -80,18 +82,11 @@ In the Airflow UI:
 
 ---
 
-## 🛠 Customization
-
-- Edit `spotify_etl.py` to change the data source, transformation, or Spotify endpoint
-- Adjust `utils_sql.py` if your schema or upsert logic changes
-- Extend the DAG to schedule daily/weekly runs
-
----
 
 ## 📋 Requirements
 
 - Docker + Docker Compose
 - Spotify Developer API access
-- Python 3.8+ (inside container)
+- Python 3.10+ (inside container)
 
 
