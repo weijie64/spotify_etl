@@ -73,6 +73,11 @@ In the Airflow UI:
 1. Turn on the DAG named `spotify_etl_pipeline`
 2. Click “Trigger DAG” to run it manually
 
+## 5. Final Result
+
+![image](https://github.com/user-attachments/assets/7904e129-c85f-48f2-8fdd-a54a1e06d860)
+
+
 ---
 
 ## 🛠 Customization
