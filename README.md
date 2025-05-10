@@ -1,17 +1,17 @@
-# 🎧 Spotify ETL Pipeline with Airflow & Docker
+# Spotify ETL Pipeline with Airflow & Docker
 
 This project extracts data from the Spotify API, transforms it, and loads it into a PostgreSQL database. It's orchestrated using Apache Airflow running inside Docker containers.
 
 ---
 
-## 📦 Features
+##  Features
 
-- 🔄 **ETL Pipeline** triggered by Airflow DAG
-- 🎵 Pulls artist and track data from Spotify API
-- 🧼 Cleans and enriches data (e.g., genre, followers, updated_at)
-- 🗃 Loads data into PostgreSQL using UPSERT logic
-- 🐳 Fully containerized with Docker Compose
-- 🔐 Secrets managed via `.env` file
+-  **ETL Pipeline** triggered by Airflow DAG
+-  Pulls artist and track data from Spotify API
+-  Cleans and enriches data (e.g., genre, followers, updated_at)
+-  Loads data into PostgreSQL using UPSERT logic
+-  Fully containerized with Docker Compose
+-  Secrets managed via `.env` file
 
 ---
 
@@ -89,14 +89,4 @@ In the Airflow UI:
 - Spotify Developer API access
 - Python 3.8+ (inside container)
 
----
 
-## 🤝 Contributing
-
-Pull requests are welcome. Please open an issue first to discuss any major changes.
-
----
-
-## 📜 License
-
-MIT License — see `LICENSE` file for details.
