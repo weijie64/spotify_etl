@@ -35,7 +35,7 @@ spotify_etl/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repo
 
