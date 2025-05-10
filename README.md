@@ -48,7 +48,7 @@ Create a `.env` file in the project root:
 
 ```env
 CLIENT_ID=your_client_id
-LIENT_SECRET=your_client_secret
+CLIENT_SECRET=your_client_secret
 DB_URI=postgresql://etl_user:etl_pass@postgres_etl:5432/etl_db
 ```
 
