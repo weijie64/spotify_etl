@@ -1,21 +1,23 @@
-# 🎧 Spotify ETL Pipeline with Airflow & Docker
+# Spotify ETL Pipeline with Airflow & Docker
 
 This project extracts data from the Spotify API, transforms it, and loads it into a PostgreSQL database. It's orchestrated using Apache Airflow running inside Docker containers.
 
----
-
-## 📦 Features
-
-- 🔄 **ETL Pipeline** triggered by Airflow DAG
-- 🎵 Pulls artist and track data from Spotify API
-- 🧼 Cleans and enriches data (e.g., genre, followers, updated_at)
-- 🗃 Loads data into PostgreSQL using UPSERT logic
-- 🐳 Fully containerized with Docker Compose
-- 🔐 Secrets managed via `.env` file
+![image](https://github.com/user-attachments/assets/9648d765-23c4-44d1-8a53-a6d0554710c4)
 
 ---
 
-## 🗂 Project Structure
+##  Features
+
+-  **ETL Pipeline** triggered by Airflow DAG
+-  Pulls artist and track data from Spotify API
+-  Cleans and enriches data (e.g., genre, followers, updated_at)
+-  Loads data into PostgreSQL using UPSERT logic
+-  Fully containerized with Docker Compose
+-  Secrets managed via `.env` file
+
+---
+
+# Project Structure
 
 ```
 spotify_etl/
@@ -33,12 +35,12 @@ spotify_etl/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/spotify-etl.git
+git clone https://github.com/weijie64/spotify-etl.git
 cd spotify-etl
 ```
 
@@ -47,9 +49,9 @@ cd spotify-etl
 Create a `.env` file in the project root:
 
 ```env
-SPOTIFY_CLIENT_ID=your_client_id
-SPOTIFY_CLIENT_SECRET=your_client_secret
-ETL_DB_URI=postgresql://etl_user:etl_pass@postgres_etl:5432/etl_db
+CLIENT_ID=your_client_id
+CLIENT_SECRET=your_client_secret
+DB_URI=postgresql://etl_user:etl_pass@postgres_etl:5432/etl_db
 ```
 
 > **Note**: Your `.env` is used in the containers and loaded via `env_file:` in `docker-compose.yml`.
@@ -72,31 +74,21 @@ Then visit the Airflow UI at: [http://localhost:8080](http://localhost:8080)
 In the Airflow UI:
 1. Turn on the DAG named `spotify_etl_pipeline`
 2. Click “Trigger DAG” to run it manually
+![image](https://github.com/user-attachments/assets/59a264e6-8a8c-4ee8-96f4-feb1c7c234bb)
+
+
+## 5. Final Result
+
+![image](https://github.com/user-attachments/assets/7904e129-c85f-48f2-8fdd-a54a1e06d860)
+
 
 ---
 
-## 🛠 Customization
-
-- Edit `spotify_etl.py` to change the data source, transformation, or Spotify endpoint
-- Adjust `utils_sql.py` if your schema or upsert logic changes
-- Extend the DAG to schedule daily/weekly runs
-
----
 
 ## 📋 Requirements
 
 - Docker + Docker Compose
 - Spotify Developer API access
-- Python 3.8+ (inside container)
+- Python 3.10+ (inside container)
 
----
 
-## 🤝 Contributing
-
-Pull requests are welcome. Please open an issue first to discuss any major changes.
-
----
-
-## 📜 License
-
-MIT License — see `LICENSE` file for details.
