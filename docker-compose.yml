@@ -4,9 +4,9 @@ services:
     image: postgres:14
     container_name: postgres_airflow
     environment:
-      POSTGRES_USER: airflow_user
-      POSTGRES_PASSWORD: airflow_pass
-      POSTGRES_DB: airflow_db
+      POSTGRES_USER: ${AIRFLOW_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${AIRFLOW_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${AIRFLOW_POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -16,9 +16,9 @@ services:
     image: postgres:14
     container_name: postgres_etl
     environment:
-      POSTGRES_USER: etl_user
-      POSTGRES_PASSWORD: etl_pass
-      POSTGRES_DB: etl_db
+      POSTGRES_USER: ${ETL_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${ETL_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${ETL_POSTGRES_DB}
     ports:
       - "5433:5432" 
     volumes:
@@ -31,9 +31,9 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow_user:airflow_pass@postgres_airflow/airflow_db
-      - AIRFLOW__CORE__FERNET_KEY='uDFQ9cJ1_HqGf5zGQdUybUks2Zp0Er13UeYk7V3eyhM='
-      - AIRFLOW__WEBSERVER__SECRET_KEY=u3JABpL9O9wICb1cfHhKT-GhJKV8KLF4Hz3Q0Ytu1FM
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_POSTGRES_USER}:${AIRFLOW_POSTGRES_PASSWORD}@postgres_airflow/${AIRFLOW_POSTGRES_DB}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
       - AIRFLOW__LOGGING__REMOTE_LOGGING=False
     command: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname Admin --role Admin --email admin@example.com && airflow webserver"
     volumes:
@@ -53,9 +53,9 @@ services:
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow_user:airflow_pass@postgres_airflow/airflow_db
-      - AIRFLOW__CORE__FERNET_KEY='uDFQ9cJ1_HqGf5zGQdUybUks2Zp0Er13UeYk7V3eyhM='
-      - AIRFLOW__WEBSERVER__SECRET_KEY=u3JABpL9O9wICb1cfHhKT-GhJKV8KLF4Hz3Q0Ytu1FM
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${AIRFLOW_POSTGRES_USER}:${AIRFLOW_POSTGRES_PASSWORD}@postgres_airflow/${AIRFLOW_POSTGRES_DB}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
       - AIRFLOW__LOGGING__REMOTE_LOGGING=False
     volumes:
       - ./dags:/opt/airflow/dags
